@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:batch="http://www.springframework.org/schema/batch"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch-3.0.xsd
+       		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd ">
+
+    <batch:job-repository id="jobRepository" table-prefix="BATCH_JUN_"/>
+
+    <import resource="classpath:beans/batch-beans.xml"/>
+
+    <batch:job id="jun-index" job-repository="jobRepository">
+
+        <batch:listeners>
+            <batch:listener ref="junJobListener"/>
+        </batch:listeners>
+
+        <batch:step id="jun-stpe1" next="jun-step2">
+            <batch:tasklet ref="junStep1"/>
+        </batch:step>
+
+        <batch:step id="jun-step2">
+            <batch:tasklet ref="junStep2"/>
+        </batch:step>
+
+    </batch:job>
+
+    <bean id="jobLauncher" class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
+        <property name="jobRepository" ref="jobRepository"/>
+    </bean>
+
+</beans>
