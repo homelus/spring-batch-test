@@ -1,4 +1,4 @@
-package jun.example;
+package jun.example.config.step;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;

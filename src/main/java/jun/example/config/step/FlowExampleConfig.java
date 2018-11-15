@@ -1,4 +1,4 @@
-package jun.example;
+package jun.example.config.step;
 
 import org.springframework.batch.core.*;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;

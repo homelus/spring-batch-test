@@ -1,4 +1,4 @@
-package jun.example;
+package jun.example.config.step;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -43,7 +43,7 @@ public class AppConfig {
 
     }
 
-    @Bean
+//    @Bean
     protected Step step2(Tasklet tasklet) {
         return steps.get("step2")
                 .tasklet(tasklet)

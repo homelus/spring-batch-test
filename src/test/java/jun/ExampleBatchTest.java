@@ -22,15 +22,15 @@ public class ExampleBatchTest {
     private JobLauncher jobLauncher;
 
     @Autowired
-    private Job parallelFlowJob;
+    private Job flatFileJob;
 
     @Test
     public void executeBatch() throws Exception {
-        jobLauncher.run(parallelFlowJob, new JobParameters());
+        jobLauncher.run(flatFileJob, new JobParameters());
     }
 
     @ComponentScan(basePackages = {
-            "jun.example"
+            "jun.example.config.readNwrite.fileExample"
     })
     @Configuration
     static class TestConfiguration extends AbstractTestConfiguration {}

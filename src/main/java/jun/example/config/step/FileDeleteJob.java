@@ -1,4 +1,4 @@
-package jun.example;
+package jun.example.config.step;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -21,7 +21,7 @@ public class FileDeleteJob {
     @Autowired
     StepBuilderFactory stepBuilderFactory;
 
-    @Bean
+//    @Bean
     public Job fileDeleteJob() {
         return this.jobBuilderFactory.get("fileDeleteJob")
                 .start(deleteFilesInDir())
@@ -35,7 +35,7 @@ public class FileDeleteJob {
                 .build();
     }
 
-    @Bean
+//    @Bean
     public Tasklet fileDeletingTasklet() {
         FileDeletingTasklet tasklet = new FileDeletingTasklet();
         tasklet.setDirectoryResource(new FileSystemResource("target/test-outputs/test-dir"));
