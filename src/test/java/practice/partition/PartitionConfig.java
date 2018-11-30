@@ -1,5 +1,6 @@
-package jun;
+package practice.partition;
 
+import jun.JunAfterBatchTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.batch.core.Job;
@@ -12,25 +13,23 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import test.config.AbstractTestConfiguration;
 
-import static jun.ExampleBatchTest.TestConfiguration;
-
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = TestConfiguration.class)
-public class ExampleBatchTest {
+@ContextConfiguration(classes = PartitionConfig.TestConfiguration.class)
+public class PartitionConfig {
 
     @Autowired
     private JobLauncher jobLauncher;
 
     @Autowired
-    private Job flowJob;
+    private Job junPartitioningJob;
 
     @Test
     public void executeBatch() throws Exception {
-        jobLauncher.run(flowJob, new JobParameters());
+        jobLauncher.run(junPartitioningJob, new JobParameters());
     }
 
     @ComponentScan(basePackages = {
-            "jun.springExample.config"
+            "jun.practice.partition"
     })
     @Configuration
     static class TestConfiguration extends AbstractTestConfiguration {}

@@ -30,7 +30,7 @@ public class JunAfterBatchTest {
 
 
     @ComponentScan(basePackages = {
-            "jun.after.config"
+            "jun.springExample.config"
     })
     @Configuration
     static class TestConfiguration extends AbstractTestConfiguration {}

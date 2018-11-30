@@ -71,7 +71,7 @@ public class FlatFileExample {
     @Bean
     public ItemWriter<String> playerWriter() {
         return new PlayerWriter();
-    }``junzz
+    }
 
     @Bean
     public FieldSetMapper fieldSetMapper() {

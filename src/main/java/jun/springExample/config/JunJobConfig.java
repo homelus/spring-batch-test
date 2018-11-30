@@ -1,7 +1,7 @@
-package jun.after.config;
+package jun.springExample.config;
 
-import jun.after.listener.JunExecutionJobListener;
-import jun.after.JunNumberTask;
+import jun.springExample.listener.JunExecutionJobListener;
+import jun.springExample.JunNumberTask;
 import jun.support.JunTaskletInitializer;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
