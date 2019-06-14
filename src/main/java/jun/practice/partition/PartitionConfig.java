@@ -83,6 +83,11 @@ public class PartitionConfig {
     }
 
     @Bean
+    public StepCompleteListener stepCompleteListener() {
+        return new StepCompleteListener();
+    }
+
+    @Bean
     public PartitionHandler junNoPartitionHandler(@Qualifier("junRPWStep") Step junRPWStep) {
         TaskExecutorPartitionHandler handler = new TaskExecutorPartitionHandler();
         handler.setGridSize(10);
@@ -105,10 +110,13 @@ public class PartitionConfig {
     @Bean
     @Qualifier("junRPWStep")
     public Step junRPWStep(JunItemReader junItemReader) {
-        return stepBuilderFactory.get("junRPWStep").<List<String>, List<JunNo>>chunk(3)
+        return stepBuilderFactory.get("junRPWStep").<List<String>, List<JunNo>>chunk(2)
                 .reader(junItemReader)
                 .processor(junItemProcessor())
                 .writer(junItemWriter())
+                .faultTolerant()
+                .retryLimit(2).retry(RuntimeException.class)
+                .listener(stepCompleteListener())
                 .build();
     }
 

@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 import static com.google.common.collect.Lists.partition;
 import static java.util.stream.Collectors.toList;
+import static jun.practice.partition.SharedConfig.CONTROL_NO;
 
 public class JunItemReader implements ItemReader<List<String>> {
 

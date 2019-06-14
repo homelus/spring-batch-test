@@ -1,6 +1,5 @@
 package practice.partition;
 
-import jun.JunAfterBatchTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.batch.core.Job;

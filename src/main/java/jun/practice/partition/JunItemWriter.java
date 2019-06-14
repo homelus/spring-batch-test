@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+import static jun.practice.partition.SharedConfig.CONTROL_NO;
+
 public class JunItemWriter implements ItemWriter<List<JunNo>> {
 
     @Autowired
@@ -12,6 +14,15 @@ public class JunItemWriter implements ItemWriter<List<JunNo>> {
 
     @Override
     public void write(List<? extends List<JunNo>> items) throws Exception {
+
+        int con_no = CONTROL_NO++;
+
+        System.out.println(con_no);
+
+        if (con_no == 2) {
+            System.out.println("ERROR 발생!!!");
+            throw new RuntimeException("customizing");
+        }
 
         int chunkSize = items.size();
         int individualSize = items.get(0).size();
@@ -21,6 +32,7 @@ public class JunItemWriter implements ItemWriter<List<JunNo>> {
             for (JunNo junNo : item) {
                 if (sharedNos.getCheckNos().contains("JunNo_" + junNo.getNo())) {
                     sharedNos.getCheckNos().remove("JunNo_" + junNo.getNo());
+                    sharedNos.getCount().incrementAndGet();
                 }
             }
         }

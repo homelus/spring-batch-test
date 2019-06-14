@@ -22,6 +22,8 @@ public class JunCheckNos implements Tasklet {
             throw new RuntimeException("동기화 실패!! Checked Size: " + checks.size());
         }
 
+        System.out.println("최종 값 데이터 : " + sharedNos.getCount().get());
+
         return RepeatStatus.FINISHED;
     }
 }
