@@ -21,7 +21,7 @@
     </build>
 
     <properties>
-        <spring.batch.version>3.0.1.RELEASE</spring.batch.version>
+        <spring.batch.version>4.2.0.RELEASE</spring.batch.version>
         <spring.core.version>4.1.5.RELEASE</spring.core.version>
     </properties>
 
