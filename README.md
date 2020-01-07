@@ -9,3 +9,7 @@ Spring Batch 에서 사용하는 기능들을 테스트 케이스를 통해 공�
 
 ### Reader/Processor/Writer 테스트
 ### Partioning 테스트
+
+## 번역
+
+- [Scaling and Parallel Processing](/documents/scaling-and-parallel-processing.md)
